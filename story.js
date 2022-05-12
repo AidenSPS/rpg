@@ -2,10 +2,31 @@
 
 // variables
 // var name = "";
-var scene1=town;
+var scene1 = picker;
+
+function roll(){
+  story("Your strength is a 13.");
+  choices = ["Keep","Reroll"];
+  answer = setOptions(choices);
+}
+
+function picker(){
+  story("");
+  choices = classes.slice();
+}
+
+function keep(){
+  story("Your strength is a 13. You rolled a 10 for intellegence");
+  attributes[0][1] = 13;
+  choices = ["Keep","Reroll"];
+  answer = setOptions(choices);
+}
 
 function checkAnswers(answer) {
   switch(answer) {
+    case "Keep":
+      keep();
+      attributes[0][1] = 13;
     case "Think some more":
       thinkSomeMore();
       break;
